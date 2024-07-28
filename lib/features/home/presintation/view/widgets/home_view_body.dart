@@ -1,3 +1,4 @@
+import 'package:bookly/core/utils/assets.dart';
 import 'package:bookly/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'custom_app_bar.dart';
@@ -24,9 +25,47 @@ class HomeViewBody extends StatelessWidget {
             padding: EdgeInsets.only(left: 24),
             child: Text(
               'Best Seller',
-              style: Styles.titleMeduim,
+              style: Styles.textStyle18,
             ),
           ),
+          const SizedBox(height: 16),
+          const BestSellerListViewItem(),
+        ],
+      ),
+    );
+  }
+}
+
+class BestSellerListViewItem extends StatelessWidget {
+  const BestSellerListViewItem({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 125,
+      child: Row(
+        children: [
+          SizedBox(
+            child: AspectRatio(
+              aspectRatio: 1.85 / 2,
+              child: Container(
+                margin: const EdgeInsets.symmetric(horizontal: 4),
+                decoration: BoxDecoration(
+                  image: const DecorationImage(
+                    image: AssetImage(AssetsData.test),
+                    fit: BoxFit.cover,
+                  ),
+                  borderRadius: BorderRadius.circular(16),
+                ),
+              ),
+            ),
+          ),
+          const Column(
+            children: 
+            [
+              
+            ],
+          )
         ],
       ),
     );

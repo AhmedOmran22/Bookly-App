@@ -7,7 +7,7 @@ class FeaturedListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      padding: const EdgeInsets.only(left: 16, top: 24, bottom: 24),
+      padding: const EdgeInsets.only(left: 12, top: 24, bottom: 24),
       scrollDirection: Axis.horizontal,
       itemCount: 10,
       itemBuilder: (BuildContext context, int index) {

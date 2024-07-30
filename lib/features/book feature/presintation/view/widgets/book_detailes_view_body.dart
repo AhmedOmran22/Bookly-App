@@ -1,3 +1,4 @@
+import 'package:bookly/features/book%20feature/presintation/view/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 //import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'custom_book_detailes_app_bar.dart';
@@ -7,13 +8,21 @@ class BookDetailesViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    double width = MediaQuery.of(context).size.width;
+    return SafeArea(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24),
-        child: Column(
-          children: [
-            CustomAppBarBookDerailes(),
-          ],
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const CustomAppBarBookDerailes(),
+              const SizedBox(height: 40),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: width * .17),
+                child: const CustomBookImage(),
+              ),
+            ],
+          ),
         ),
       ),
     );

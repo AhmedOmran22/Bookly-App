@@ -17,6 +17,15 @@ class CustomAppBarBookDerailes extends StatelessWidget {
             Icons.close,
             size: 34,
           ),
+        ),
+        const Spacer(),
+        IconButton(
+          padding: EdgeInsets.zero,
+          onPressed: () {},
+          icon: const Icon(
+            Icons.shopping_cart,
+            size: 34,
+          ),
         )
       ],
     );

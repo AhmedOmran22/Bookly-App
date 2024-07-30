@@ -1,8 +1,7 @@
-import 'package:bookly/constans.dart';
+import 'package:bookly/core/utils/app_router.dart';
 import 'package:bookly/core/utils/assets.dart';
-import 'package:bookly/features/book%20feature/presintation/view/home_view.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 import 'sliding_text.dart';
 
@@ -62,20 +61,15 @@ class _SplashViewBodyState extends State<SplashViewBody>
   Future<dynamic> navigatoToHome() {
     return Future.delayed(
       const Duration(seconds: 3),
-      () => Get.off(
-        const HomeView(),
-        transition: Transition.native,
-        duration: kDurationTransition,
-      ),
+      () => GoRouter.of(context).pushReplacement(AppRouter.kKomeView),
     );
   }
 }
 
-
-   // Navigator.of(context).pushReplacement(
+    //  Navigator.of(context).pushReplacement(
         //   MaterialPageRoute(
         //     builder: (context) {
         //       return const HomeView();
         //     },
         //   ),
-        // );
+        // ),

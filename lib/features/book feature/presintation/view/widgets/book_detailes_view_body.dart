@@ -1,9 +1,8 @@
 import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/book%20feature/presintation/view/widgets/book_rating.dart';
-import 'package:bookly/features/book%20feature/presintation/view/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
-//import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'custom_book_detailes_app_bar.dart';
+import 'custom_book_image.dart';
 
 class BookDetailesViewBody extends StatelessWidget {
   const BookDetailesViewBody({super.key});

@@ -20,7 +20,7 @@ class HomeViewBody extends StatelessWidget {
           SliverToBoxAdapter(child: FeaturedListView()),
           SliverToBoxAdapter(
             child: Padding(
-              padding: EdgeInsets.only(left: 24),
+              padding: EdgeInsets.only(left: 16),
               child: Text(
                 'Best Seller',
                 style: Styles.textStyle20,

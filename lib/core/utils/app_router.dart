@@ -1,5 +1,6 @@
 import 'package:bookly/features/book%20feature/presintation/view/book_detailes_view.dart';
 import 'package:bookly/features/book%20feature/presintation/view/home_view.dart';
+import 'package:bookly/features/search%20feature/preseintatio/views/search_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -8,6 +9,7 @@ import '../../features/splash feature/presintation/views/splash_view.dart';
 abstract class AppRouter {
   static const String kKomeView = '/HomeView';
   static const String kBookDetailesView = '/BookDetailesView';
+  static const String kSeachView = '/SearchView';
 
   static final router = GoRouter(
     routes: [
@@ -40,9 +42,30 @@ abstract class AppRouter {
         path: kBookDetailesView,
         pageBuilder: (context, state) {
           return CustomTransitionPage(
-            // transitionDuration: const Duration(milliseconds: 400),
+            transitionDuration: const Duration(milliseconds: 800),
             key: state.pageKey,
             child: const BookDetailesView(),
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) {
+              const begin = Offset(1.0, 0.0);
+              const end = Offset.zero;
+              final tween = Tween(begin: begin, end: end);
+              final offsetAnimation = animation.drive(tween);
+              return SlideTransition(
+                position: offsetAnimation,
+                child: child,
+              );
+            },
+          );
+        },
+      ),
+      GoRoute(
+        path: kSeachView,
+        pageBuilder: (context, state) {
+          return CustomTransitionPage(
+            transitionDuration: const Duration(milliseconds: 800),
+            key: state.pageKey,
+            child: const SearchView(),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
               const begin = Offset(1.0, 0.0);

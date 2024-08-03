@@ -6,6 +6,8 @@ environment:
   sdk: '>=3.4.3 <4.0.0'
 dependencies:
   cupertino_icons: ^1.0.6
+  dartz: ^0.10.1
+  dio: ^5.5.0+1
   equatable: ^2.0.5
   flutter:
     sdk: flutter

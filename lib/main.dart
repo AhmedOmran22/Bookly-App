@@ -1,17 +1,9 @@
 import 'package:bookly/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const BooklyApp());
-  // SystemChrome.setSystemUIOverlayStyle(
-  //   const SystemUiOverlayStyle(
-  //     statusBarColor: Colors.transparent,
-  //     statusBarBrightness: Brightness.dark,
-  //     statusBarIconBrightness: Brightness.light,
-  //   ),
-  // );
 }
 
 class BooklyApp extends StatelessWidget {

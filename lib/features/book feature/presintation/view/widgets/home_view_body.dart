@@ -35,11 +35,9 @@ class HomeViewBody extends StatelessWidget {
   }
 }
 
-
-
- // SliverFillRemaining(
-   //   child: BestSellerListView(),
-    // )
+// SliverFillRemaining(
+//   child: BestSellerListView(),
+// )
 
 // ------------------------------------------------------------
 // class BestSellerListView extends StatelessWidget {
@@ -59,7 +57,6 @@ class HomeViewBody extends StatelessWidget {
 //     );
 //   }
 // }
-
 
 // ------------------------------------------------------------
 

@@ -65,11 +65,3 @@ class _SplashViewBodyState extends State<SplashViewBody>
     );
   }
 }
-
-    //  Navigator.of(context).pushReplacement(
-        //   MaterialPageRoute(
-        //     builder: (context) {
-        //       return const HomeView();
-        //     },
-        //   ),
-        // ),

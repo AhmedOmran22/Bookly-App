@@ -1,10 +1,9 @@
-import 'dart:developer';
-
 import 'package:bookly/core/errors/failure.dart';
 import 'package:bookly/core/utils/api_service.dart';
 import 'package:bookly/features/book%20feature/data/models/book%20model/book_model.dart';
 import 'package:bookly/features/book%20feature/data/repositry/book_repo.dart';
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 
 class BookRepoImpl implements BookRepo {
   final ApiService apiService;
@@ -25,8 +24,10 @@ class BookRepoImpl implements BookRepo {
 
       return right(books);
     } on Exception catch (e) {
-      log(e.toString());
-      return left(ServerFailure());
+      if (e is DioException) {
+        return left(ServerFailure.fromDioExcepiton(e));
+      }
+      return left(ServerFailure(e.toString()));
     }
   }
 

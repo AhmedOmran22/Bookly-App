@@ -26,8 +26,9 @@ class BookRepoImpl implements BookRepo {
     } on Exception catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioExcepiton(e));
+      } else {
+        return left(ServerFailure(e.toString()));
       }
-      return left(ServerFailure(e.toString()));
     }
   }
 
@@ -41,13 +42,13 @@ class BookRepoImpl implements BookRepo {
       for (var book in data['items']) {
         books.add(BookModel.fromJson(book));
       }
-
       return right(books);
     } on Exception catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioExcepiton(e));
+      } else {
+        return left(ServerFailure(e.toString()));
       }
-      return left(ServerFailure(e.toString()));
     }
   }
 }

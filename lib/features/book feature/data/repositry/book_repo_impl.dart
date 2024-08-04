@@ -23,7 +23,7 @@ class BookRepoImpl implements BookRepo {
       }
 
       return right(books);
-    } on Exception catch (e) {
+    } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioExcepiton(e));
       } else {
@@ -43,7 +43,7 @@ class BookRepoImpl implements BookRepo {
         books.add(BookModel.fromJson(book));
       }
       return right(books);
-    } on Exception catch (e) {
+    } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioExcepiton(e));
       } else {

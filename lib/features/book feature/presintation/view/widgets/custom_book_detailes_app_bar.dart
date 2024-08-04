@@ -19,14 +19,14 @@ class CustomAppBarBookDerailes extends StatelessWidget {
           ),
         ),
         const Spacer(),
-        IconButton(
-          padding: EdgeInsets.zero,
-          onPressed: () {},
-          icon: const Icon(
-            Icons.shopping_cart_checkout_outlined,
-            size: 34,
-          ),
-        )
+        // IconButton(
+        //   padding: EdgeInsets.zero,
+        //   onPressed: () {},
+        //   icon: const Icon(
+        //     Icons.shopping_cart_checkout_outlined,
+        //     size: 34,
+        //   ),
+        // )
       ],
     );
   }

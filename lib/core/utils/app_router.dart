@@ -26,7 +26,7 @@ abstract class AppRouter {
         path: kKomeView,
         pageBuilder: (context, state) {
           return CustomTransitionPage(
-            transitionDuration: const Duration(milliseconds: 800),
+            transitionDuration: const Duration(milliseconds: 300),
             key: state.pageKey,
             child: const HomeView(),
             transitionsBuilder:
@@ -47,7 +47,7 @@ abstract class AppRouter {
         path: kBookDetailesView,
         pageBuilder: (context, state) {
           return CustomTransitionPage(
-            transitionDuration: const Duration(milliseconds: 800),
+            transitionDuration: const Duration(milliseconds: 300),
             key: state.pageKey,
             child: BlocProvider(
               create: (context) => SimiilarBooksCubit(
@@ -75,7 +75,7 @@ abstract class AppRouter {
         path: kSeachView,
         pageBuilder: (context, state) {
           return CustomTransitionPage(
-            transitionDuration: const Duration(milliseconds: 800),
+            transitionDuration: const Duration(milliseconds: 300),
             key: state.pageKey,
             child: const SearchView(),
             transitionsBuilder:

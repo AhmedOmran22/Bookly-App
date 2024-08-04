@@ -8,12 +8,12 @@ part 'simiilar_books_state.dart';
 
 class SimiilarBooksCubit extends Cubit<SimiilarBooksState> {
   SimiilarBooksCubit(this.bookRepo) : super(SimiilarBooksInitial());
-    final BookRepo bookRepo;
+  final BookRepo bookRepo;
 
   Future<void> fetchSimillarBooks({required String category}) async {
     emit(SimiilarBooksLoading());
 
-    var result = await bookRepo.fetchSimiilarBooks(category:category );
+    var result = await bookRepo.fetchSimiilarBooks(category: category);
 
     result.fold(
       (failure) {

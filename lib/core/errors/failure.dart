@@ -32,12 +32,6 @@ class ServerFailure extends Failure {
       case DioExceptionType.connectionError:
         return ServerFailure('Connection Error');
 
-      case DioExceptionType.unknown:
-        if (dioException.message!.contains('SocketException')) {
-          return ServerFailure('No Internet Connection , try later');
-        }
-        return ServerFailure('Unexpected Error ,Try again');
-
       default:
         return ServerFailure('OPS there was ana error');
     }

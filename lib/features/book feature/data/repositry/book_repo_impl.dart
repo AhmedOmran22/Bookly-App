@@ -23,7 +23,7 @@ class BookRepoImpl implements BookRepo {
       }
 
       return right(books);
-    }  catch (e) {
+    } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioExcepiton(e));
       } else {
@@ -36,14 +36,14 @@ class BookRepoImpl implements BookRepo {
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     try {
       var data = await apiService.get(
-        endPoint: 'volumes?Filtering=free-ebooks&q=subject:programming',
+        endPoint: 'volumes?Filtering=free-ebooks&q=learning',
       );
       List<BookModel> books = [];
       for (var book in data['items']) {
         books.add(BookModel.fromJson(book));
       }
       return right(books);
-    }  catch (e) {
+    } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioExcepiton(e));
       } else {
@@ -51,19 +51,21 @@ class BookRepoImpl implements BookRepo {
       }
     }
   }
-  
+
   @override
-  Future<Either<Failure, List<BookModel>>> fetchSimiilarBooks({required String category}) async{
-   try {
+  Future<Either<Failure, List<BookModel>>> fetchSimiilarBooks(
+      {required String category}) async {
+    try {
       var data = await apiService.get(
-        endPoint: 'volumes?Filtering=free-ebooks&q=subject:programming&Sorting=relavence',
+        endPoint:
+            'volumes?Filtering=free-ebooks&q=subject:$category&Sorting=relavence',
       );
       List<BookModel> books = [];
       for (var book in data['items']) {
         books.add(BookModel.fromJson(book));
       }
       return right(books);
-    }  catch (e) {
+    } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioExcepiton(e));
       } else {

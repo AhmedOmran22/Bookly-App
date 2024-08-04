@@ -23,7 +23,7 @@ class BookRepoImpl implements BookRepo {
       }
 
       return right(books);
-    } on Exception catch (e) {
+    }  catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioExcepiton(e));
       } else {
@@ -43,7 +43,27 @@ class BookRepoImpl implements BookRepo {
         books.add(BookModel.fromJson(book));
       }
       return right(books);
-    } on Exception catch (e) {
+    }  catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioExcepiton(e));
+      } else {
+        return left(ServerFailure(e.toString()));
+      }
+    }
+  }
+  
+  @override
+  Future<Either<Failure, List<BookModel>>> fetchSimiilarBooks({required String category}) async{
+   try {
+      var data = await apiService.get(
+        endPoint: 'volumes?Filtering=free-ebooks&q=subject:programming&Sorting=relavence',
+      );
+      List<BookModel> books = [];
+      for (var book in data['items']) {
+        books.add(BookModel.fromJson(book));
+      }
+      return right(books);
+    }  catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioExcepiton(e));
       } else {

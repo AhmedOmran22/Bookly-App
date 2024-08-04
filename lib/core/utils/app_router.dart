@@ -1,7 +1,12 @@
+import 'package:bookly/core/utils/sevice_locator.dart';
+import 'package:bookly/features/book%20feature/data/models/book%20model/book_model.dart';
+import 'package:bookly/features/book%20feature/data/repositry/book_repo_impl.dart';
+import 'package:bookly/features/book%20feature/presintation/manager/simillar%20list%20cubit/simiilar_books_cubit.dart';
 import 'package:bookly/features/book%20feature/presintation/view/book_detailes_view.dart';
 import 'package:bookly/features/book%20feature/presintation/view/home_view.dart';
 import 'package:bookly/features/search%20feature/preseintatio/views/search_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/splash feature/presintation/views/splash_view.dart';
@@ -44,7 +49,14 @@ abstract class AppRouter {
           return CustomTransitionPage(
             transitionDuration: const Duration(milliseconds: 800),
             key: state.pageKey,
-            child: const BookDetailesView(),
+            child: BlocProvider(
+              create: (context) => SimiilarBooksCubit(
+                getIt.get<BookRepoImpl>(),
+              ),
+              child:  BookDetailesView(
+                bookModel: state.extra as BookModel,
+              ),
+            ),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
               const begin = Offset(1.0, 0.0);

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/utils/assets_data.dart';
-
 class CustomBookImage extends StatelessWidget {
-  const CustomBookImage({super.key});
+  const CustomBookImage({super.key, required this.imageUrl});
+
+  final String imageUrl;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -12,8 +12,8 @@ class CustomBookImage extends StatelessWidget {
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 4),
           decoration: BoxDecoration(
-            image: const DecorationImage(
-              image: AssetImage(AssetsData.test),
+            image: DecorationImage(
+              image: NetworkImage(imageUrl),
               fit: BoxFit.cover,
             ),
             borderRadius: BorderRadius.circular(16),

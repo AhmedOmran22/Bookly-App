@@ -1,3 +1,4 @@
+import 'package:bookly/core/utils/assets_data.dart';
 import 'package:flutter/material.dart';
 
 import 'custom_book_image.dart';
@@ -16,7 +17,7 @@ class SimiilarBooksListView extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: 10,
         itemBuilder: (BuildContext context, int index) {
-          return const CustomBookImage();
+          return const CustomBookImage(imageUrl: AssetsData.randomUrlPhoto,);
         },
       ),
     );

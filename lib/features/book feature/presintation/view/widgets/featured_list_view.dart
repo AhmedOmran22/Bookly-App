@@ -22,9 +22,12 @@ class FeaturedListView extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               padding: const EdgeInsets.only(left: 12, top: 10, bottom: 24),
               scrollDirection: Axis.horizontal,
-              itemCount: 10,
+              itemCount: state.books.length,
               itemBuilder: (BuildContext context, int index) {
-                return const CustomBookImage();
+                return CustomBookImage(
+                  imageUrl:
+                      state.books[index].volumeInfo.imageLinks!.thumbnail!,
+                );
               },
             ),
           );

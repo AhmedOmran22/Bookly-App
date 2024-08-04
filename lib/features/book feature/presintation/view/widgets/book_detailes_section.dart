@@ -1,3 +1,4 @@
+import 'package:bookly/core/utils/assets_data.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
@@ -16,7 +17,9 @@ class BookDetailesSction extends StatelessWidget {
         const SizedBox(height: 30),
         SizedBox(
           height: width < 600 ? hight * .35 : width * .5,
-          child: const CustomBookImage(),
+          child: const CustomBookImage(
+            imageUrl: AssetsData.randomUrlPhoto,
+          ),
         ),
         const SizedBox(height: 20),
         const Text(

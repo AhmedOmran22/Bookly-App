@@ -1,20 +1,20 @@
 import 'package:bloc/bloc.dart';
+import 'package:bookly/features/book%20feature/data/repositry/book_repo.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../../data/models/book model/book_model.dart';
-import '../../../data/repositry/book_repo_impl.dart';
 
 part 'featured_books_state.dart';
 
 class FeaturedBooksCubit extends Cubit<FeaturedBooksState> {
-  FeaturedBooksCubit(this.bookRepoImpl) : super(FeaturedBooksInitial());
+  FeaturedBooksCubit(this.bookRepo) : super(FeaturedBooksInitial());
 
-  final BookRepoImpl bookRepoImpl;
+  final BookRepo bookRepo;
 
   Future<void> fetchFeaturedBooks() async {
     emit(FeaturedBooksLoading());
 
-    var result = await bookRepoImpl.fetchFeaturedBooks();
+    var result = await bookRepo.fetchFeaturedBooks();
 
     result.fold(
       (failure) {

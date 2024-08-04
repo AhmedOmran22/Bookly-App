@@ -19,6 +19,7 @@ class BookDetailesSction extends StatelessWidget {
           height: width < 600 ? hight * .35 : width * .5,
           child: const CustomBookImage(
             imageUrl: AssetsData.randomUrlPhoto,
+            widthRatio: 1.5,
           ),
         ),
         const SizedBox(height: 20),

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../book feature/presintation/view/widgets/book_list_view_item.dart';
-
 class SearchResultListView extends StatelessWidget {
   const SearchResultListView({super.key});
 
@@ -13,7 +11,7 @@ class SearchResultListView extends StatelessWidget {
         (context, index) {
           return const Padding(
             padding: EdgeInsets.symmetric(vertical: 10, horizontal: 16),
-            child: BookListViewItem(),
+            // child: BookListViewItem(bookModel: AssetsData.randomUrlPhoto),
           );
         },
       ),

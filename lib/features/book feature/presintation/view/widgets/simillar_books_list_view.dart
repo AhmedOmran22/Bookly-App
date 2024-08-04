@@ -17,7 +17,10 @@ class SimiilarBooksListView extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: 10,
         itemBuilder: (BuildContext context, int index) {
-          return const CustomBookImage(imageUrl: AssetsData.randomUrlPhoto,);
+          return const CustomBookImage(
+            imageUrl: AssetsData.randomUrlPhoto,
+            widthRatio: 1.7,
+          );
         },
       ),
     );

@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class CustomBookImage extends StatelessWidget {
-  const CustomBookImage({super.key, required this.imageUrl});
-
+  const CustomBookImage(
+      {super.key, required this.imageUrl, required this.widthRatio});
+  final double widthRatio;
   final String imageUrl;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       child: AspectRatio(
-        aspectRatio: 1.5 / 2,
+        aspectRatio: widthRatio / 2,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: ClipRRect(

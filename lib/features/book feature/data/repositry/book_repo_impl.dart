@@ -15,7 +15,7 @@ class BookRepoImpl implements BookRepo {
     try {
       var data = await apiService.get(
         endPoint:
-            'volumes?Filtering=free-ebooks&q=subject:programming&Sorting=newest',
+            'volumes?Filtering=free-ebooks&q=computer science&Sorting=newest',
       );
       List<BookModel> books = [];
       for (var book in data['items']) {
@@ -23,7 +23,7 @@ class BookRepoImpl implements BookRepo {
       }
 
       return right(books);
-    } catch (e) {
+    } on Exception catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioExcepiton(e));
       } else {
@@ -43,7 +43,7 @@ class BookRepoImpl implements BookRepo {
         books.add(BookModel.fromJson(book));
       }
       return right(books);
-    } catch (e) {
+    } on Exception catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioExcepiton(e));
       } else {

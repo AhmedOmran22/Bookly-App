@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 void snackBar(context, String text) {
   ScaffoldMessenger.of(context).showSnackBar(
-    const SnackBar(
+     SnackBar(
       content: Text(
         text,
       ),

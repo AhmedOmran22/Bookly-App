@@ -4,6 +4,7 @@ import 'package:bookly/features/book%20feature/data/repositry/book_repo_impl.dar
 import 'package:bookly/features/book%20feature/presintation/manager/simillar%20list%20cubit/simiilar_books_cubit.dart';
 import 'package:bookly/features/book%20feature/presintation/view/book_detailes_view.dart';
 import 'package:bookly/features/book%20feature/presintation/view/home_view.dart';
+import 'package:bookly/features/search%20feature/preseintatio/manager/cubit/search_cubit.dart';
 import 'package:bookly/features/search%20feature/preseintatio/views/search_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -53,7 +54,7 @@ abstract class AppRouter {
               create: (context) => SimiilarBooksCubit(
                 getIt.get<BookRepoImpl>(),
               ),
-              child:  BookDetailesView(
+              child: BookDetailesView(
                 bookModel: state.extra as BookModel,
               ),
             ),
@@ -77,7 +78,12 @@ abstract class AppRouter {
           return CustomTransitionPage(
             transitionDuration: const Duration(milliseconds: 300),
             key: state.pageKey,
-            child: const SearchView(),
+            child: BlocProvider(
+              create: (context) => SearchCubit(
+                getIt.get<BookRepoImpl>(),
+              ),
+              child: const SearchView(),
+            ),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
               const begin = Offset(1.0, 0.0);

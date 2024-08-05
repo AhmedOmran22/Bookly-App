@@ -31,7 +31,7 @@ class BookDetailesSction extends StatelessWidget {
         const SizedBox(height: 5),
         Text(
           textAlign: TextAlign.center,
-          bookModel.volumeInfo.authors![0],
+          bookModel.volumeInfo.authors?[0] ?? '',
           style: Styles.textStyle18.copyWith(
             fontStyle: FontStyle.italic,
           ),

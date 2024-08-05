@@ -12,9 +12,12 @@ class SearchViewBody extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
+            child: SizedBox(height: 18),
+          ),
+          SliverToBoxAdapter(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
-              child: CustomSearchTextField(),
+              child: TextDirectionTextField(),
             ),
           ),
           SliverToBoxAdapter(

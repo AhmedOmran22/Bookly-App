@@ -6,6 +6,9 @@ import '../models/book model/book_model.dart';
 abstract class BookRepo {
   Future<Either<Failure, List<BookModel>>> fetchNewestBooks();
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks();
+  Future<Either<Failure, List<BookModel>>> fetchSearchBooks({
+    required String category,
+  });
   Future<Either<Failure, List<BookModel>>> fetchSimiilarBooks({
     required String category,
   });

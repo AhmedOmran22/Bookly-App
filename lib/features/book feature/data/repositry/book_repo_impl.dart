@@ -73,4 +73,25 @@ class BookRepoImpl implements BookRepo {
       }
     }
   }
+
+  @override
+  Future<Either<Failure, List<BookModel>>> fetchSearchBooks(
+      {required String category}) async {
+    try {
+      var data = await apiService.get(
+        endPoint: 'volumes?Filtering=free-ebooks&q=$category',
+      );
+      List<BookModel> books = [];
+      for (var book in data['items']) {
+        books.add(BookModel.fromJson(book));
+      }
+      return right(books);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioExcepiton(e));
+      } else {
+        return left(ServerFailure(e.toString()));
+      }
+    }
+  }
 }

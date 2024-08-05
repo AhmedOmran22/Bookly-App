@@ -4,8 +4,8 @@ import 'package:bookly/features/book%20feature/data/repositry/book_repo_impl.dar
 import 'package:bookly/features/book%20feature/presintation/manager/simillar%20list%20cubit/simiilar_books_cubit.dart';
 import 'package:bookly/features/book%20feature/presintation/view/book_detailes_view.dart';
 import 'package:bookly/features/book%20feature/presintation/view/home_view.dart';
-import 'package:bookly/features/search%20feature/preseintatio/manager/cubit/search_cubit.dart';
-import 'package:bookly/features/search%20feature/preseintatio/views/search_view.dart';
+import 'package:bookly/features/search%20feature/preseintation/manager/cubit/search_cubit.dart';
+import 'package:bookly/features/search%20feature/preseintation/views/search_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';

@@ -21,7 +21,9 @@ class ServerFailure extends Failure {
 
       case DioExceptionType.badResponse:
         return ServerFailure.fromResponse(
-            dioException.response!.statusCode!, dioException.response!.data);
+          dioException.response!.statusCode!,
+          dioException.response!.data,
+        );
 
       case DioExceptionType.badCertificate:
         return ServerFailure('bad Certificate');
@@ -33,7 +35,7 @@ class ServerFailure extends Failure {
         return ServerFailure('Connection Error');
 
       default:
-        return ServerFailure('OPS there was ana error');
+        return ServerFailure('OPS there was an error');
     }
   }
 
@@ -45,7 +47,9 @@ class ServerFailure extends Failure {
     } else if (statusCode == 500) {
       return ServerFailure('Internal Server fialure , please try later');
     } else {
-      return ServerFailure('OPS there was ana error');
+      return ServerFailure(
+        'OPS there was error , status code $statusCode',
+      );
     }
   }
 }

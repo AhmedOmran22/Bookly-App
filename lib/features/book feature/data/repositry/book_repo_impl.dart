@@ -53,8 +53,9 @@ class BookRepoImpl implements BookRepo {
   }
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchSimiilarBooks(
-      {required String category}) async {
+  Future<Either<Failure, List<BookModel>>> fetchSimiilarBooks({
+    required String category,
+  }) async {
     try {
       var data = await apiService.get(
         endPoint:
@@ -75,8 +76,9 @@ class BookRepoImpl implements BookRepo {
   }
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchSearchBooks(
-      {required String category}) async {
+  Future<Either<Failure, List<BookModel>>> fetchSearchBooks({
+    required String category,
+  }) async {
     try {
       var data = await apiService.get(
         endPoint: 'volumes?Filtering=free-ebooks&q=$category',
